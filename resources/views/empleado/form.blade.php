@@ -16,9 +16,9 @@
 
 <label for="Foto">Foto</label>
 <br>
-{{$empleado->Foto}}
+<img width="100px" src="{{asset('storage').'/'.$empleado->Foto}}" alt="Foto">
 <br>
 <input type="file" name="Foto">
 <br> <br>
 
-<input type="submit" value="Enviar">
+<input type="submit" value="Guardar">
