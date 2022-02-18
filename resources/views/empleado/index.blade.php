@@ -1,3 +1,14 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+
+@if(Session::has('mensaje'))
+
+    {{Session::get('mensaje')}}
+
+@endif
+
 <table class="table table-light">
 
     <thead class="thead-light">
@@ -40,3 +51,9 @@
     </tbody>
 
 </table>
+
+<br>
+<a href="{{url('empleado/create')}}">Registrar nuevo empleado</a>
+
+</div>
+@endsection

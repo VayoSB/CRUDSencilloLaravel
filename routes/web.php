@@ -15,7 +15,7 @@ use App\Http\Controllers\EmpleadoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 /* Otra forma de hacerlo
@@ -28,3 +28,11 @@ Route::get('/empleado', function () {
 */
 
 Route::resource('empleado',EmpleadoController::class);
+Auth::routes();
+
+Route::get('/home', [EmpleadoController::class, 'index'])->name('home');
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/', [EmpleadoController::class, 'index'])->name('home');
+});
